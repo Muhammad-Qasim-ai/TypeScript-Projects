@@ -1,6 +1,8 @@
-import inquirer  from "inquirer";
-import  chalkAnimation  from "chalk-animation";
-import  chalk  from "chalk";
+#! /usr/bin/env node
+
+import inquirer from "inquirer";
+import chalkAnimation from "chalk-animation";
+import chalk from "chalk";
 
 const sleep = () => {
     return new Promise((res) => {
@@ -9,8 +11,8 @@ const sleep = () => {
 }
 
 
-async function welcome(){
-    let neonTitle = chalkAnimation.neon('Welcone to Number Guessing Game')
+async function welcome() {
+    let neonTitle = chalkAnimation.neon('--------------Welcome to Number Guessing Game----------------')
     await sleep();
     neonTitle.stop();
 }
@@ -18,9 +20,8 @@ async function welcome(){
 await welcome();
 
 
-let genNumber: number = Math.floor(Math.random() * 10)
-    
-async function askNumber(input: number){
+
+async function askNumber(input: number) {
     await inquirer
     .prompt([
         {
@@ -28,18 +29,33 @@ async function askNumber(input: number){
             name: 'userInput',
             message: 'Enter a number'
         }
-
     ])
     .then((answer) => {
-            if (answer.userInput === input) {
-                console.log("You guessed Correct");
-                
-            }else {
-                console.log(`You Failed, The number Was ${genNumber}`);
-                
-            }
-        
+        if (answer.userInput === input) {
+            console.log("You guessed Correct");
+        } else {
+            console.log(`You Failed, The number Was ${genNumber}`);
+        }
     })
+}   
+let genNumber = Math.floor(Math.random() * 10)
+
+async function startAgain() {
+    do {
+        await askNumber(genNumber);
+        var again = await inquirer
+        .prompt({
+            type: 'input',
+            name: 'restart',
+            message: 'Do you want to continue press y/n'
+        })
+    } while (again.restart == 'y' || again.restart == 'yes' || again.restart == 'Yes' || again.restart == 'YES');
 }
 
-askNumber(genNumber)
+await startAgain();
+
+
+
+
+
+

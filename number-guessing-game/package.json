@@ -1,11 +1,11 @@
 {
   "name": "qasgame1",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "bin": {
-    "qascal1": "bin/index.js"
+    "qasgame1": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,6 +20,7 @@
   "dependencies": {
     "chalk": "^5.1.2",
     "chalk-animation": "^2.0.3",
-    "inquirer": "^9.1.4"
+    "inquirer": "^9.1.4",
+    "qasgame1": "^1.5.0"
   }
 }

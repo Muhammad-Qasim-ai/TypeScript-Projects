@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import inquirer from "inquirer";
 import chalkAnimation from "chalk-animation";
 const sleep = () => {
@@ -6,12 +7,11 @@ const sleep = () => {
     });
 };
 async function welcome() {
-    let neonTitle = chalkAnimation.neon('Welcone to Number Guessing Game');
+    let neonTitle = chalkAnimation.neon('--------------Welcome to Number Guessing Game----------------');
     await sleep();
     neonTitle.stop();
 }
 await welcome();
-let genNumber = Math.floor(Math.random() * 10);
 async function askNumber(input) {
     await inquirer
         .prompt([
@@ -30,4 +30,16 @@ async function askNumber(input) {
         }
     });
 }
-askNumber(genNumber);
+let genNumber = Math.floor(Math.random() * 10);
+async function startAgain() {
+    do {
+        await askNumber(genNumber);
+        var again = await inquirer
+            .prompt({
+            type: 'input',
+            name: 'restart',
+            message: 'Do you want to continue press y/n'
+        });
+    } while (again.restart == 'y' || again.restart == 'yes' || again.restart == 'Yes' || again.restart == 'YES');
+}
+await startAgain();
