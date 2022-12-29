@@ -1,1 +1,1 @@
-declare module 'currency-converter-lt'
+declare module 'currency-converter-lt2'
