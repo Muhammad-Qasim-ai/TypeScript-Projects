@@ -1,0 +1,32 @@
+{
+<<<<<<< HEAD
+  "name": "qasadventure",
+  "version": "1.3.0",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "qasadventure": "bin/index.js"
+  },
+=======
+  "name": "oop-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+>>>>>>> a0a94025c9dd4dc4c83766a69b136adf15dab96f
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/inquirer": "^9.0.3",
+    "inquirer": "^9.1.4"
+<<<<<<< HEAD
+  },
+  "description": ""
+=======
+  }
+>>>>>>> a0a94025c9dd4dc4c83766a69b136adf15dab96f
+}
